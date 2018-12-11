@@ -1,2 +1,12 @@
-# CS437
-Yale CS437 Final Project
+# CS537 Final Project
+
+## Group Members:
+
+Lingsong Zeng 
+Weimiao Wu 
+Han You 
+Zhaolong Yu 
+Lingyi Tan 
+
+
+

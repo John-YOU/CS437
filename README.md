@@ -5,6 +5,8 @@
 
 ## Introduction
 * A lightweight high-performance movie search engine developed by a group of movie lovers.
+* Able to search high rating movies by genre and year.
+* Able to spot art movies for a niche market audience
 
 ## Tech Stack
 * Database Server: SQLite

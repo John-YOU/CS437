@@ -25,3 +25,6 @@ class MovieViewSet(viewsets.ModelViewSet):
 
 def index(request):
     return render(request, 'home.html')
+
+def search(request):
+    return render(request, 'search.html')

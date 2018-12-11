@@ -8,27 +8,17 @@ from django.shortcuts import render
 from rest_framework import viewsets, filters
 
 #serializers import
-from movies.serializers import MovieSerializer, GenreSerializer
+from movies.serializers import MovieSerializer
 
 #models import
-from movies.models import Movie, Genre
+from movies.models import MoviesMovie
 
 # Create your views here.
 
 
 class MovieViewSet(viewsets.ModelViewSet):
-	queryset = Movie.objects.all()
+	queryset = MoviesMovie.objects.all()
 	serializer_class = MovieSerializer
-	filter_backends = (filters.OrderingFilter, filters.SearchFilter,)
-	search_fields = ('name', 'director', 'score', 
-					'popularity', 'genres__name')
-	ordering_fields = search_fields
-	ordering = ('-popularity')
-
-
-class GenreViewSet(viewsets.ModelViewSet):
-	queryset = Genre.objects.all()
-	serializer_class = GenreSerializer
 
 def index(request):
     return render(request, 'home.html')

@@ -13,18 +13,19 @@ from rest_framework import viewsets, filters
 from movies.serializers import MovieSerializer, GenresTableSerializer
 
 #models import
-from movies.models import Movie, GenresTable
+from movies.models import Movie, GenresTable, Rating
+from decimal import Decimal
 
 # Create your views here.
 
 
 class GenresTableViewSet(viewsets.ModelViewSet):
-	queryset = GenresTable.objects.all()
-	serializer_class = GenresTableSerializer
+    queryset = GenresTable.objects.all()
+    serializer_class = GenresTableSerializer
 
 class MovieViewSet(viewsets.ModelViewSet):
-	queryset = Movie.objects.all()
-	serializer_class = MovieSerializer
+    queryset = Movie.objects.all()
+    serializer_class = MovieSerializer
 
 def movies(request):
     movies = Movie.objects.all()
@@ -53,23 +54,55 @@ def moviesInfo(request):
     movies = Movie.objects.all()
     year=None
     title=None
-    if request.method=="POST":
-	l=request.body.find('=')+1
-	s=request.body[l:]
-	if l==5:
-		year=s
-	else:
-		title=s
-		title=title.replace('+',' ')
-	movie=[]
-	for i in range(len(movies)):
-		if year!=None and str(movies[i].year)==year:
-			movie.append(movies[i])
-		if title!=None and movies[i].primary_title==title:
-			movie.append(movies[i])
-	movies=movie
+    l=request.body.find('=')+1
+    s=request.body[l:]
+    if l==5:
+        year=s
+    else:
+        title=s
+	title=title.replace('+',' ')
+    movie=[]
+    for i in range(len(movies)):
+	if year!=None and str(movies[i].year)==year:
+	    movie.append(movies[i])
+	if title!=None and movies[i].primary_title==title:
+	    movie.append(movies[i])
+    movies=movie
     limit = len(movies)+1
     paginator = Paginator(movies, limit)
     page = request.GET.get('page','1')
     result = paginator.page(page)
-    return render(request, 'movies/page_partition.html', {'messages' : result})
+    return render(request, 'movies/page_partition_movies.html', {'messages' : result})
+
+class movie_rating(object):
+    def __init__(self,primary_title,year,runtime,average_rating,number_of_votes):
+        self.primary_title=primary_title
+        self.year=year
+        self.runtime=runtime
+        self.average_rating=average_rating
+        self.number_of_votes=number_of_votes
+
+@csrf_exempt
+def rating(request):
+    l=request.body.find('=')+1
+    s=request.body[l:]
+    r=Decimal(s.strip(' "'))
+    movie = Movie.objects.all()
+    dict={}
+    for i in range(len(movie)):
+	dict[movie[i].movie_id]=(movie[i].primary_title,movie[i].year,movie[i].runtime)
+    ratings = Rating.objects.all()
+    movies=[]
+    for i in range(len(ratings)):
+        if ratings[i].average_rating>=r:
+            id=ratings[i].movie_id
+            rating=ratings[i].average_rating
+            votes=ratings[i].number_of_votes
+            movies.append(movie_rating(dict[id][0],dict[id][1],dict[id][2],rating,votes))
+    limit = len(movies)+1
+    movies.sort(key=lambda x:x.average_rating,reverse=True)
+    paginator = Paginator(movies, limit)
+    page = request.GET.get('page','1')
+    result = paginator.page(page)
+    return render(request, 'movies/page_partition_ratings.html', {'messages' : result})
+

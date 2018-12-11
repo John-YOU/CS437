@@ -224,7 +224,7 @@ class MoviesMovie(models.Model):
 
 class Rating(models.Model):
     x = models.IntegerField(db_column='X', blank=True, null=True)  # Field name made lowercase.
-    movie_id = models.TextField(db_column='Movie_ID', blank=True, null=True)  # Field name made lowercase.
+    movie_id = models.TextField(db_column='Movie_ID', blank=True, primary_key=True)  # Field name made lowercase.
     average_rating = models.FloatField(db_column='Average.Rating', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     number_of_votes = models.IntegerField(db_column='Number.of.Votes', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     level = models.TextField(db_column='Level', blank=True, null=True)  # Field name made lowercase.

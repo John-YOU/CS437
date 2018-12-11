@@ -20,4 +20,9 @@
                 <input type="text" name="director"><br>
                 <input type="submit" value="Submit">
         </form>
+	<form action="/rating" method="post">
+                Movie Rating:<br>
+                <input type="number" step="0.1" name="rating" min="0" max="10"><br>
+                <input type="submit" value="Submit">
+        </form>
 {% endblock %}

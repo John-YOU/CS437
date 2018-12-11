@@ -13,19 +13,10 @@ from rest_framework import viewsets, filters
 from movies.serializers import MovieSerializer, GenresTableSerializer
 
 #models import
-from movies.models import Movie, GenresTable, Rating
+from movies.models import Movie, GenresTable, Rating, GenreRe
 from decimal import Decimal
 
 # Create your views here.
-
-
-class GenresTableViewSet(viewsets.ModelViewSet):
-    queryset = GenresTable.objects.all()
-    serializer_class = GenresTableSerializer
-
-class MovieViewSet(viewsets.ModelViewSet):
-    queryset = Movie.objects.all()
-    serializer_class = MovieSerializer
 
 def movies(request):
     movies = Movie.objects.all()
@@ -132,3 +123,28 @@ def popularity(request):
     page = request.GET.get('page','1')
     result = paginator.page(page)
     return render(request, 'movies/page_partition_ratings.html', {'messages' : result})
+
+@csrf_exempt
+def genreMovies(request):
+    l=request.body.find('=')+1
+    s=request.body[l:]
+    allMovies = Movie.objects.all()
+    dict={}
+    for i in range(len(allMovies)):
+        dict[allMovies[i].movie_id]=i
+    genres = GenresTable.objects.all()
+    id=None
+    for i in range(len(genres)):
+        if genres[i].genres_name==s:
+            id=genres[i].genres_id
+    movie = GenreRe.objects.all()
+    movies=[]
+    for i in range(len(movie)):
+        if movie[i].genre_id1==id or movie[i].genre_id2==id or movie[i].genre_id3==id:
+            movies.append(allMovies[dict[movie[i].movie_id]])
+    movies.sort(key=lambda x:x.year)
+    limit = len(movies)+1
+    paginator = Paginator(movies, limit)
+    page = request.GET.get('page','1')
+    result = paginator.page(page)
+    return render(request, 'movies/page_partition_movies.html', {'messages' : result})

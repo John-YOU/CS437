@@ -1,17 +1,17 @@
 {% extends "home.html" %}
 {% block content %}
 	<form action="/moviesInfo" method="post">
-		Movie Title:<br>
+		Movie title:<br>
 		<input type="text" name="title"><br>
 		<input type="submit" value="Submit">
 	</form>
 	<form action="/moviesInfo" method="post">
-		Movie Year:<br>
+		Movie year:<br>
 		<input type="text" name="year"><br>
 		<input type="submit" value="Submit">
 	</form>
-	<form action="/movies" method="post">
-		Movie Genre:<br>
+	<form action="/genreMovies" method="post">
+		Genre movies:<br>
 		<input type="text" name="genre"><br>
 		<input type="submit" value="Submit">
 	</form>
@@ -26,7 +26,7 @@
                 <input type="submit" value="Submit">
         </form>
 	<form action="/popularity" method="post">
-                Top popular:<br>
+                Top popular movies:<br>
                 <input type="number" step="1" name="popularity" min="0"><br>
                 <input type="submit" value="Submit">
         </form>

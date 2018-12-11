@@ -168,7 +168,7 @@ class DjangoSession(models.Model):
 
 
 class GenreRe(models.Model):
-    movie_id = models.TextField(db_column='Movie_ID', blank=True, null=True)  # Field name made lowercase. This field type is a guess.
+    movie_id = models.TextField(db_column='Movie_ID', blank=True, primary_key=True)  # Field name made lowercase. This field type is a guess.
     genre_id1 = models.TextField(db_column='genre_ID1', blank=True, null=True)  # Field name made lowercase. This field type is a guess.
     genre_id2 = models.TextField(db_column='genre_ID2', blank=True, null=True)  # Field name made lowercase. This field type is a guess.
     genre_id3 = models.TextField(db_column='genre_ID3', blank=True, null=True)  # Field name made lowercase. This field type is a guess.

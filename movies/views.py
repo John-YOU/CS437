@@ -11,13 +11,13 @@ from rest_framework import viewsets, filters
 from movies.serializers import MovieSerializer
 
 #models import
-from movies.models import MoviesMovie
+from movies.models import Movie
 
 # Create your views here.
 
 
 class MovieViewSet(viewsets.ModelViewSet):
-	queryset = MoviesMovie.objects.all()
+	queryset = Movie.objects.all()
 	serializer_class = MovieSerializer
 
 def index(request):

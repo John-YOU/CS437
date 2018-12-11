@@ -24,7 +24,7 @@ class MovieViewSet(viewsets.ModelViewSet):
 	queryset = Movie.objects.all()
 	serializer_class = MovieSerializer
 
-def show_all(request):
+def movies(request):
     movies = Movie.objects.all()
     limit = 10
     paginator = Paginator(movies, limit) # 10 records per page

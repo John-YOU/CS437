@@ -51,7 +51,7 @@ $ localhost:8000
 * Search movies based on popularity
 * Search movies based on the directors
 * Search movies based on the genres
-* To be continue
+* To be continued
 
 ## Database Design
 <img src="./ER_model.png" width="700">

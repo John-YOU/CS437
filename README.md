@@ -15,7 +15,7 @@
 
 ## Requirements
 * Python 2.7/3.5+
-* Sqlite3
+* SQLite3
 * Django
 
 

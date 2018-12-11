@@ -5,6 +5,8 @@
 
 ## Introduction
 * A lightweight high-performance movie search engine developed by a group of movie lovers.
+* Able to search high rating movies by genre and year.
+* Able to spot art movies for a niche market audience
 
 ## Tech Stack
 * Database Server: SQLite
@@ -14,14 +16,17 @@
 * Frontend Framework: Django
 
 ## Requirements
-* Python 2.7/3.5+
+* Python 2.7
 * SQLite3
 * Django
+# 
 
 
 ```bash
-$ pip install sqlite3
 $ pip install django
+$ pip install djangorestframework
+$ pip install markdown
+$ pip install django-filter
 ```
 
 ## Deployment
@@ -51,12 +56,16 @@ $ localhost:8000
 * Search movies based on popularity
 * Search movies based on the directors
 * Search movies based on the genres
-* To be continue
+* To be continued
 
 ## Database Design
 <img src="./ER_model.png" width="700">
 
 ## Demo
+<img src="./iphone_demo.png" width="300">
+<img src="./pc_demo.png" width="700">
+
+
 
 ## Acknowledgement
 * Professor Avi Silberschatz

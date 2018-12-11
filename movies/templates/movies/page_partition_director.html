@@ -1,0 +1,27 @@
+{% extends "home.html" %}
+{% block content %}
+<table class="table table-striped table-bordered table-dark table-hover table-condensed">
+            <thead>
+                <tr class="info">
+                    <th>Director Name</th>
+                    <th>Movie Title</th>
+                    <th>Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if messages %}
+                    {% for message in messages %}
+                        <!-- <tr class="{% cycle 'active' 'success' 'warning' 'info' %}"> --> 
+                            <td>{{ message.name }}</td>
+                            <td>{{ message.primary_title }}</td>
+                            <td>{{ message.year }}</td>
+                       </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="4">No Data</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+{% endblock %}

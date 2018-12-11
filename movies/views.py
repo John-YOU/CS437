@@ -8,13 +8,16 @@ from django.shortcuts import render
 from rest_framework import viewsets, filters
 
 #serializers import
-from movies.serializers import MovieSerializer
+from movies.serializers import MovieSerializer, GenresTableSerializer
 
 #models import
-from movies.models import Movie
+from movies.models import Movie, GenresTable
 
 # Create your views here.
 
+class GenresTableViewSet(viewsets.ModelViewSet):
+	queryset = GenresTable.objects.all()
+        serializer_class = GenresTableSerializer
 
 class MovieViewSet(viewsets.ModelViewSet):
 	queryset = Movie.objects.all()

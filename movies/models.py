@@ -180,7 +180,7 @@ class GenreRe(models.Model):
 
 class GenresTable(models.Model):
     genres_name = models.TextField(db_column='Genres_Name', blank=True, null=True)  # Field name made lowercase.
-    genres_id = models.TextField(db_column='Genres_ID', blank=True, null=True)  # Field name made lowercase.
+    genres_id = models.TextField(db_column='Genres_ID', blank=True, primary_key=True)  # Field name made lowercase.
     description = models.TextField(db_column='Description', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:

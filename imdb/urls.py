@@ -28,7 +28,7 @@ from movies import views
 
 router = routers.DefaultRouter()
 router.register(r'movies', views.MovieViewSet)
-
+router.register(r'genres', views.GenresTableViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),

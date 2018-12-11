@@ -57,6 +57,10 @@ $ localhost:8000
 <img src="./ER_model.png" width="700">
 
 ## Demo
+<img src="./iphone_demo.png" width="300">
+<img src="./pc_demo.png" width="700">
+
+
 
 ## Acknowledgement
 * Professor Avi Silberschatz

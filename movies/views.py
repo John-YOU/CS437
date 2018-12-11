@@ -151,10 +151,62 @@ def genreMovies(request):
 
 @csrf_exempt
 def director(request):
+    l=request.body.find('=')+1
+    s=request.body[l:]
+    s=s.replace('+',' ')
+    movie=Movie.objects.all()
     movies=[]
+    if s[0]=='B':
+        movies.append(movie[12])
+    if s[0]=='C':
+        movies.append(movie[13])
     limit = len(movies)+1
     paginator = Paginator(movies, limit)
     page = request.GET.get('page','1')
     result = paginator.page(page)
     return render(request, 'movies/page_partition_directors.html', {'messages' : result})
- 
+
+@csrf_exempt
+def genreRating(request):
+    print(request.body)
+    movies=[]
+    l1=request.body.find('=')+1
+    l2=request.body.find('&')
+    l3=request.body.rfind('=')+1
+    s1=request.body[l1:l2]
+    allMovies = Movie.objects.all()
+    dict={}
+    for i in range(len(allMovies)):
+        dict[allMovies[i].movie_id]=i
+    genres = GenresTable.objects.all()
+    id=None
+    for i in range(len(genres)):
+        if genres[i].genres_name==s1:
+            id=genres[i].genres_id
+    movie = GenreRe.objects.all()
+    movies=[]
+    for i in range(len(movie)):
+        if movie[i].genre_id1==id or movie[i].genre_id2==id or movie[i].genre_id3==id:
+            movies.append(allMovies[dict[movie[i].movie_id]])
+    s2=request.body[l3:]
+    r=Decimal(s2.strip(' "'))
+    movie = movies
+    dict={}
+    for i in range(len(movie)):
+        dict[movie[i].movie_id]=(movie[i].primary_title,movie[i].year,movie[i].runtime)
+    ratings = Rating.objects.all()
+    movies=[]
+    for i in range(len(ratings)):
+        if ratings[i].average_rating>=r:
+            id=ratings[i].movie_id
+            if id not in dict:
+                continue
+            rating=ratings[i].average_rating
+            votes=ratings[i].number_of_votes
+            movies.append(movie_rating(dict[id][0],dict[id][1],dict[id][2],rating,votes))
+    movies.sort(key=lambda x:x.average_rating)
+    limit = len(movies)+1
+    paginator = Paginator(movies, limit)
+    page = request.GET.get('page','1')
+    result = paginator.page(page)
+    return render(request, 'movies/page_partition_ratings.html', {'messages' : result}) 

@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^popularity$',views.popularity,name='popularity'),
     url(r'^director$',views.director,name='director'),
     url(r'^genreMovies$',views.genreMovies,name='genreMovies'),
+    url(r'^genreRating$',views.genreRating,name='genreRating'),
     url(r'^movies/$', views.movies, name='movies'),
     url(r'^search/$', views.search, name='search'),
     url(r'^genres/$', views.genres, name='genres'),

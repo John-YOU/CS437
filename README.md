@@ -33,7 +33,7 @@ $ cd ./CS437
 ```bash
 $ python manage.py runserver
 ```
-**4. Enter the address**
+**4. Enter the following address in the browser**
 ```bash
 $ localhost:8000
 ```
@@ -47,6 +47,7 @@ $ localhost:8000
 * To be continue
 
 ## Database Design
+<img src="./graph_12.6.pdf" width="450">
 
 ## Demo
 

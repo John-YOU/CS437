@@ -18,12 +18,13 @@ from movies.models import Movie, GenresTable
 
 class GenresTableViewSet(viewsets.ModelViewSet):
 	queryset = GenresTable.objects.all()
-        serializer_class = GenresTableSerializer
+	serializer_class = GenresTableSerializer
 
 class MovieViewSet(viewsets.ModelViewSet):
 	queryset = Movie.objects.all()
 	serializer_class = MovieSerializer
 
+# show all the movies
 def show_all(request):
     movies = Movie.objects.all()
     limit = 10
@@ -31,6 +32,15 @@ def show_all(request):
     page = request.GET.get('page','1')
     result = paginator.page(page)
     return render(request, 'movies/page_partition.html', {'messages' : result})
+
+# show all the genres
+def show_all_genres(request):
+    genres = GenresTable.objects.all()
+    limit = 6
+    paginator = Paginator(genres, limit) # 10 records per page
+    page = request.GET.get('page','1')
+    result = paginator.page(page)
+    return render(request, 'movies/page_partition_genres.html', {'messages' : result})
 
 def index(request):
     return render(request, 'home.html')

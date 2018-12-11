@@ -24,19 +24,19 @@
         </table>
 	<div>
             <ul class="pagination">
-            <li><a href="/movies/show_genres/?page=1">First Page</a></li>
+            <li><a href="/genres/?page=1">First Page</a></li>
                  {% if messages.has_previous %}
-                        <li><a href="/movies/show_genres/?page={{ messages.previous_page_number }}">Previous Page</a></li>
+                        <li><a href="/genres/?page={{ messages.previous_page_number }}">Previous Page</a></li>
                 {% endif %}
 		<!-- 
                  {% for num in messages.paginator.page_range %}
-                    <li><a href="/movies/show_genres/?page={{ num }}">{{ num }}</a></li>
+                    <li><a href="/genres/?page={{ num }}">{{ num }}</a></li>
                  {% endfor %}
 		-->
                 {% if messages.has_next %}
-                     <li><a href="/movies/show_genres/?page={{ messages.next_page_number }}">Next Page</a></li>
+                     <li><a href="/genres/?page={{ messages.next_page_number }}">Next Page</a></li>
                 {% endif %}
-                <li><a href="/movies/show_genres/?page={{ messages.paginator.num_pages }}">Last Page</a></li>
+                <li><a href="/genres/?page={{ messages.paginator.num_pages }}">Last Page</a></li>
              </ul>
         </div>
 {% endblock %}

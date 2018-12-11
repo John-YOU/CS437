@@ -47,7 +47,7 @@ $ localhost:8000
 * To be continue
 
 ## Database Design
-<img src="./graph_12.6.pdf" width="450">
+<img src="./ER_model.png" width="450">
 
 ## Demo
 

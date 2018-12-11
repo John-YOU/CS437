@@ -35,7 +35,7 @@ def movies(request):
 def genres(request):
     genres = GenresTable.objects.all()
     limit = 6
-    paginator = Paginator(genres, limit) # 10 records per page
+    paginator = Paginator(genres, limit) # 6 records per page
     page = request.GET.get('page','1')
     result = paginator.page(page)
     return render(request, 'movies/page_partition_genres.html', {'messages' : result})

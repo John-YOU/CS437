@@ -151,15 +151,7 @@ def genreMovies(request):
 
 @csrf_exempt
 def director(request):
-    l=request.body.find('=')+1
-    s=request.body[l:]
-    s=s.replace('+',' ')
-    movie=Movie.objects.all()
     movies=[]
-    if s[0]=='B':
-        movies.append(movie[12])
-    if s[0]=='C':
-        movies.append(movie[13])
     limit = len(movies)+1
     paginator = Paginator(movies, limit)
     page = request.GET.get('page','1')
@@ -168,7 +160,6 @@ def director(request):
 
 @csrf_exempt
 def genreRating(request):
-    print(request.body)
     movies=[]
     l1=request.body.find('=')+1
     l2=request.body.find('&')

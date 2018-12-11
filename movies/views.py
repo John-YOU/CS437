@@ -16,6 +16,9 @@ from movies.serializers import MovieSerializer, GenresTableSerializer
 from movies.models import Movie, GenresTable, Rating, GenreRe
 from decimal import Decimal
 
+import sqlite3
+from sqlite3 import Error
+
 # Create your views here.
 
 def movies(request):
@@ -148,3 +151,13 @@ def genreMovies(request):
     page = request.GET.get('page','1')
     result = paginator.page(page)
     return render(request, 'movies/page_partition_movies.html', {'messages' : result})
+
+@csrf_exempt
+def director(request):
+    movies=[]
+    limit = len(movies)+1
+    paginator = Paginator(movies, limit)
+    page = request.GET.get('page','1')
+    result = paginator.page(page)
+    return render(request, 'movies/page_partition_directors.html', {'messages' : result})
+ 

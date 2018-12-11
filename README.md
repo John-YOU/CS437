@@ -4,7 +4,7 @@
 * Lingsong Zeng, Weimiao Wu, Han You, Zhaolong Yu, Lingyi Tan 
 
 ## Introduction
-* A lightweight high-performance movies search engine developed by a group of movie lovers.
+* A lightweight high-performance movie search engine developed by a group of movie lovers.
 
 ## Tech Stack
 * Database Server: SQLite

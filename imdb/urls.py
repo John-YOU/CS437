@@ -28,10 +28,10 @@ from movies import views
 
 router = routers.DefaultRouter()
 router.register(r'movies', views.MovieViewSet)
-
+router.register(r'genres', views.GenresTableViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('movies.urls')),
+    url(r'^movies/', include('movies.urls')),
     url(r'^', include(router.urls)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

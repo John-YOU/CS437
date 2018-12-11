@@ -29,3 +29,6 @@ class MovieViewSet(viewsets.ModelViewSet):
 class GenreViewSet(viewsets.ModelViewSet):
 	queryset = Genre.objects.all()
 	serializer_class = GenreSerializer
+
+def index(request):
+    return render(request, 'header.html')

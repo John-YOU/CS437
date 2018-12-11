@@ -15,8 +15,14 @@
 
 ## Requirements
 * Python 2.7/3.5+
-
+* Sqlite3
 * Django
+
+
+```bash
+$ pip install sqlite3
+$ pip install django
+```
 
 ## Deployment
 **1. Clone the Github repository**

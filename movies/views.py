@@ -8,8 +8,6 @@ from django.views.decorators.csrf import csrf_exempt
 
 #rest_framework imports
 from rest_framework import viewsets, filters
-from django.http import HttpResponseRedirect
-
 
 #serializers import
 from movies.serializers import MovieSerializer, GenresTableSerializer

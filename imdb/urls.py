@@ -33,6 +33,6 @@ router.register(r'genres', views.GenreViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^', include('movies.urls')),
     url(r'^', include(router.urls)),
-    url(r'^temp', include('movies.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

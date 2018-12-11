@@ -31,4 +31,4 @@ class GenreViewSet(viewsets.ModelViewSet):
 	serializer_class = GenreSerializer
 
 def index(request):
-    return render(request, 'header.html')
+    return render(request, 'home.html')

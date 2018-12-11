@@ -17,11 +17,15 @@
 * Python 2.7/3.5+
 * SQLite3
 * Django
+# 
 
 
 ```bash
 $ pip install sqlite3
 $ pip install django
+$ pip install djangorestframework
+$ pip install markdown
+$ pip install django-filter
 ```
 
 ## Deployment

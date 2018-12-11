@@ -1,15 +1,7 @@
 # CS537 Final Project
 
 ## Group Members
-Lingsong Zeng
-
-Weimiao Wu
-
-Han You
-
-Zhaolong Yu
-
-Lingyi Tan 
+Lingsong Zeng, Weimiao Wu, Han You, Zhaolong Yu, Lingyi Tan 
 
 ## Introduction
 

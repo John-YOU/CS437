@@ -16,9 +16,6 @@ from movies.serializers import MovieSerializer, GenresTableSerializer
 from movies.models import Movie, GenresTable, Rating, GenreRe
 from decimal import Decimal
 
-import sqlite3
-from sqlite3 import Error
-
 # Create your views here.
 
 def movies(request):

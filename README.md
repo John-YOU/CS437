@@ -4,16 +4,19 @@
 Lingsong Zeng, Weimiao Wu, Han You, Zhaolong Yu, Lingyi Tan 
 
 ## Introduction
+A light-weight high-performance movies search engine developed by a group of movie lovers.
 
 ## Tech Stack
-Database Server: SQLite
+* Database Server: SQLite
 
-Backend Framework: Python
+* Backend Framework: Python
 
-Frontend Framework: Django
+* Frontend Framework: Django
 
 ## Requirements
+* Python 2.7/3.5+
 
+* Django
 
 ## Deployment
 

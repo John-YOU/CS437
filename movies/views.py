@@ -106,3 +106,29 @@ def rating(request):
     result = paginator.page(page)
     return render(request, 'movies/page_partition_ratings.html', {'messages' : result})
 
+@csrf_exempt
+def popularity(request):
+    l=request.body.find('=')+1
+    s=request.body[l:]
+    n=int(s)
+    movie = Movie.objects.all()
+    dict={}
+    for i in range(len(movie)):
+        dict[movie[i].movie_id]=(movie[i].primary_title,movie[i].year,movie[i].runtime)
+    ratings = Rating.objects.all()
+    movies=[]
+    for i in range(len(ratings)):
+        id=ratings[i].movie_id
+        rating=ratings[i].average_rating
+        votes=ratings[i].number_of_votes
+        movies.append(movie_rating(dict[id][0],dict[id][1],dict[id][2],rating,votes))
+    limit = len(movies)+1
+    movies.sort(key=lambda x:x.number_of_votes,reverse=True)
+    movie=movies
+    movies=[]
+    for i in range(n):
+        movies.append(movie[i])
+    paginator = Paginator(movies, limit)
+    page = request.GET.get('page','1')
+    result = paginator.page(page)
+    return render(request, 'movies/page_partition_ratings.html', {'messages' : result})

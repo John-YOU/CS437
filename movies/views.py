@@ -91,7 +91,7 @@ def rating(request):
             votes=ratings[i].number_of_votes
             movies.append(movie_rating(dict[id][0],dict[id][1],dict[id][2],rating,votes))
     limit = len(movies)+1
-    movies.sort(key=lambda x:x.average_rating,reverse=True)
+    movies.sort(key=lambda x:x.average_rating)
     paginator = Paginator(movies, limit)
     page = request.GET.get('page','1')
     result = paginator.page(page)

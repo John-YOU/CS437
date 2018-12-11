@@ -77,7 +77,7 @@ class AuthUserUserPermissions(models.Model):
 
 
 class CastPeople(models.Model):
-    person_id = models.TextField(db_column='Person_ID', blank=True, null=True)  # Field name made lowercase.
+    person_id = models.TextField(db_column='Person_ID', blank=True, primary_key=True)  # Field name made lowercase.
     name = models.TextField(db_column='Name', blank=True, null=True)  # Field name made lowercase.
     birth_year = models.TextField(db_column='Birth Year', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     death_year = models.TextField(db_column='Death Year', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
@@ -88,7 +88,7 @@ class CastPeople(models.Model):
 
 
 class CastRe(models.Model):
-    movie_id = models.TextField(db_column='Movie_ID', blank=True, null=True)  # Field name made lowercase.
+    movie_id = models.TextField(db_column='Movie_ID', blank=True, primary_key=True)  # Field name made lowercase.
     person_id = models.TextField(db_column='Person_ID', blank=True, null=True)  # Field name made lowercase.
     characters = models.TextField(blank=True, null=True)
     category = models.TextField(blank=True, null=True)
@@ -99,7 +99,7 @@ class CastRe(models.Model):
 
 
 class CrewPeople(models.Model):
-    person_id = models.TextField(db_column='Person_ID', blank=True, null=True)  # Field name made lowercase.
+    person_id = models.TextField(db_column='Person_ID', blank=True, primary_key=True)  # Field name made lowercase.
     name = models.TextField(db_column='Name', blank=True, null=True)  # Field name made lowercase.
     birth_year = models.TextField(db_column='Birth Year', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     death_year = models.TextField(db_column='Death Year', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
@@ -111,7 +111,7 @@ class CrewPeople(models.Model):
 
 
 class CrewRe(models.Model):
-    movie_id = models.TextField(db_column='Movie_ID', blank=True, null=True)  # Field name made lowercase.
+    movie_id = models.TextField(db_column='Movie_ID', blank=True, primary_key=True)  # Field name made lowercase.
     person_id = models.TextField(db_column='Person_ID', blank=True, null=True)  # Field name made lowercase.
     category = models.TextField(db_column='Category', blank=True, null=True)  # Field name made lowercase.
 

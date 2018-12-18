@@ -45,8 +45,9 @@ def moviesInfo(request):
     movies = Movie.objects.all()
     year=None
     title=None
-    l=request.body.find('=')+1
-    s=request.body[l:]
+    body=request.body
+    l=body.find('=')+1
+    s=body[l:]
     if l==5:
         year=s
     else:

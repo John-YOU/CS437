@@ -25,7 +25,7 @@ SECRET_KEY = 'ub!d_xfhm0gy-@%)@uveh6y)gws_ry(9lh#q1%s8%5v0ptka8!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['kishorkpawar-imdb.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['mysterious-basin-39068.herokuapp.com', 'kishorkpawar-imdb.herokuapp.com', 'localhost']
 
 
 # Application definition

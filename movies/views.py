@@ -80,7 +80,7 @@ def rating(request):
     movie = Movie.objects.all()
     dict={}
     for i in range(len(movie)):
-	dict[movie[i].movie_id]=(movie[i].primary_title,movie[i].year,movie[i].runtime)
+	    dict[movie[i].movie_id]=(movie[i].primary_title,movie[i].year,movie[i].runtime)
     ratings = Rating.objects.all()
     movies=[]
     for i in range(len(ratings)):

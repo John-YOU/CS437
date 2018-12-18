@@ -53,10 +53,10 @@ def moviesInfo(request):
         title=s.replace('+',' ')
     movie=[]
     for i in range(len(movies)):
-	if year!=None and str(movies[i].year)==year:
-	    movie.append(movies[i])
-	if title!=None and movies[i].primary_title==title:
-	    movie.append(movies[i])
+	    if year!=None and str(movies[i].year)==year:
+	        movie.append(movies[i])
+	    if title!=None and movies[i].primary_title==title:
+	        movie.append(movies[i])
     movies=movie
     limit = len(movies)+1
     paginator = Paginator(movies, limit)

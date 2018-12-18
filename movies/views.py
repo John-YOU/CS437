@@ -50,7 +50,8 @@ def moviesInfo(request):
     if l==5:
         year=s
     else:
-        title=s.replace('+',' ')
+        title=s
+	    title=title.replace('+',' ')
     movie=[]
     for i in range(len(movies)):
 	if year!=None and str(movies[i].year)==year:
